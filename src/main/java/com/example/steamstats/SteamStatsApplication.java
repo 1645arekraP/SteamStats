@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.*;
-// TODO: fix whatever needs to be fixed and add comments
+
+// TODO: Clean up code, Current code is being rushed, planning to create a Steam Account class to hold all data
+// Planning to also rework classes/methods to follow Robert C Martins Clean Code book
 
 @SpringBootApplication
 @Controller
@@ -17,11 +19,18 @@ public class SteamStatsApplication {
         return "index";
     }
 
+    @RequestMapping("/search")
+    String search() {
+        return "search";
+    }
+
     @RequestMapping("/stats/{steamID}")
     public String test(@PathVariable("steamID") String steamID, Model model) throws Exception {
-        SteamJsonApiClient test = new SteamJsonApiClient(steamID);
-        model.addAttribute("steamID", steamID); // Replace this with Steam Username when added
-        model.addAttribute("games", test.playedWithinLastTwoWeeksStringBuilder());
+        SteamUserStats test = new SteamUserStats(steamID);
+        SteamGameStats t = new SteamGameStats(steamID);
+        model.addAttribute("steamID", test.getSteamUserName()); // Replace this with Steam Username when added
+        model.addAttribute("games", t.getGameStats());
+        test.getSteamUserName();
         return "stats";
     }
 

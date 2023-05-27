@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Bootstrap -->
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom -->
+  <link rel="stylesheet" href="stylesheet.css">
+
+  <!-- Google Fonts / Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+  <a class="navbar-brand" href="/">Steam<span class="title2">Stats</span></a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/">Link</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Begin page content -->
+<main role="main" class="container">
+  <div class="steamUser-container">
+    <h1>Steam<span class="title2">Stats</span></h1>
+    <div class="id-instructions">
+      <p>Example steam id: 76561198964943023</p>
+      <p>To find your steam ID log into steam -> Click on your profile -> click on account details -> SteamID is under username</p>
+    </div>
+
+    <form name="steamUserForm" method="post" onsubmit="return onSubmitForm();">
+      <p id="searchPrompt">Enter SteamID:</p>
+      <input type="text" id="steamIdInput" name="steamID" placeholder="_________________">
+      <hr>
+      <p class="menuIcons">> <button id="statButton" type="submit">Get My Stats!</button> <</p> <br>
+    </form>
+  </div>
+</main>
+
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

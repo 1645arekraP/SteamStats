@@ -1,60 +1,70 @@
 * {
-    font-family: 'Public Sans', sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }
 
 body {
-    background-color: #87CEEB;
+    background-color: #101010;
+}
+
+h1 {
+    color: white;
 }
 
 a {
-    color: black;
+    color: white;
+    font-size: 16px;
     text-decoration: none;
 }
 
+input::placeholder {
+    color: white;
+    font-size: 16px;
+    animation: blinker 1s step-start infinite;
+}
+
+.instructions {
+    color: gray;
+    font-size: 12px;
+}
+
+#statButton:hover, a:hover {
+    color: white;
+    text-decoration: none;
+    animation: blinker 1s step-start infinite;
+}
+
+@keyframes blinker {
+    50% {
+        color: #ce9ace
+    }
+}
+
+.menuIcons {
+    color: transparent;
+}
+
 #statButton {
-    padding: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 2px;
-    width: 200px;
-    font-size: 15px;
-    font-family: 'Public Sans', sans-serif;
-    background: #A388EE;
-    border-radius: 7px;
-    box-shadow: 3px 3px 0px 0px black;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    color: white;
 }
 
-#statButton:hover {
-    background-color: #F4D738;
-    cursor: pointer;
+.menuIcons:hover {
+    color: #63359c;
 }
 
-#statButton:focus {
-    outline: none;
+.decoration {
+    border-color: transparent;
+    background-color: #9c65ce;
+    color: #9c65ce;
+    height: 1px;
+    width: 90%;
 }
 
-#steamIdInput {
-    padding: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-right: 1px;
-    font-family: 'Public Sans', sans-serif;
-    background: white;
-    border-radius: 7px;
-    box-shadow: 3px 3px 0px 0px black;
-}
-
-#steamIdInput:focus {
-    outline: none;
-}
 
 .title2 {
-    color: #A388EE;
-}
-
-.id-instructions {
-    padding-left: 15px;
-    padding-right: 15px;
+    color: #63359c;
 }
 
 .steamUser-container {
@@ -65,40 +75,30 @@ a {
     transform: translate(-50%, -50%);
     text-align: center;
     flex: 1;
-    background-color: white;
 
-    width: 750px;
+    width: 700px;
     padding-top: 15px;
     padding-bottom: 15px;
-
-    border-color: black;
-    border-style: solid;
-    border-width: medium;
-    border-radius: 7px;
-    box-shadow: 3px 3px 0px 0px black;
 }
 
-.navbar.navbar-expand-md.navbar-dark.fixed-top {
-    background-color: white;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-    border-bottom-color: black;
+#searchPrompt {
+    font-size: 16px;
+    color: white;
+    display: inline;
 }
 
-.navbar-dark .navbar-brand, .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show,
-.navbar-dark .navbar-nav .show>.nav-link {
-    color: black;
+input {
+    color: white;
+    background-color: transparent;
+    border: none;
+    width: 280px;
 }
 
-.navbar-dark .navbar-nav .nav-link {
-    color: black;
+input:focus {
+    outline: none;
 }
 
-.navbar-expand-md .navbar-nav .nav-link {
-        padding-right: 1.5rem;
-        padding-left: 1.5rem;
-}
-
-.navbar-dark .navbar-brand:focus, .navbar-dark .navbar-brand:hover {
-    color: black;
+.id-instructions {
+    color: gray;
+    font-size: 12px;
 }

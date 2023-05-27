@@ -8,6 +8,7 @@
 <h1>Your Most Recently Played Games</h1>
 <h1 th:text="${steamID}"/>
 <p th:text="${games}"/>
+<p th:each="game : ${games}" th:text="${game}"></p>
 
 </body>
 </html>

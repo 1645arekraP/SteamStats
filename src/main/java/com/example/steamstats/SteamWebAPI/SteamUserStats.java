@@ -1,4 +1,4 @@
-package com.example.steamstats;
+package com.example.steamstats.SteamWebAPI;
 
 import org.json.*;
 import java.io.IOException;

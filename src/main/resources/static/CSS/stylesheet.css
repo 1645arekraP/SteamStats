@@ -6,8 +6,12 @@ body {
     background-color: #101010;
 }
 
-h1 {
+h1, p {
     color: white;
+}
+
+#sum {
+    float: right;
 }
 
 a {
@@ -65,6 +69,21 @@ input::placeholder {
 
 .title2 {
     color: #63359c;
+}
+
+.statsTable {
+    width: 100%;
+    color: white;
+    font-weight: normal;
+    font-size: small;
+}
+
+th {
+    font-weight: normal;
+}
+
+.gameKey {
+    float: left;
 }
 
 .steamUser-container {

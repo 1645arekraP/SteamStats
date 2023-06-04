@@ -1,5 +1,7 @@
 package com.example.steamstats;
 
+import com.example.steamstats.SteamWebAPI.SteamGameStats;
+import com.example.steamstats.SteamWebAPI.SteamUserStats;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.ui.Model;
@@ -28,7 +30,7 @@ public class SteamStatsApplication {
     public String test(@PathVariable("steamID") String steamID, Model model) throws Exception {
         SteamUserStats test = new SteamUserStats(steamID);
         SteamGameStats t = new SteamGameStats(steamID);
-        model.addAttribute("steamID", test.getSteamUserName()); // Replace this with Steam Username when added
+        model.addAttribute("steamName", test.getSteamUserName()); // Replace this with Steam Username when added
         model.addAttribute("games", t.getGameStats());
         test.getSteamUserName();
         return "stats";

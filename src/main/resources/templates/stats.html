@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Stats</title>
-</head>
+
+<head th:replace="fragments :: head"></head>
 <body>
-<h1>Your Most Recently Played Games</h1>
-<h1 th:text="${steamID}"/>
-<p th:text="${games}"/>
-<p th:each="game : ${games}" th:text="${game}"></p>
+
+<div th:replace="fragments :: header"></div>
+
+<!-- Begin page content -->
+<main role="main" class="container">
+
+    <div class="steamUser-container">
+        <h1>Steam<span class="title2">Stats</span></h1>
+        <p th:text="${steamName} + '\'s Recent Activity'"/>
+        <table class="statsTable">
+            <thead>
+            <tr>
+                <th>Save Name</th>
+                <th>Minutes Played</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="game, iter : ${games}">
+                <td class="gameKey" th:text="${iter.count} + '. ' + ${game.key}"></td>
+                <td th:text="${game.value}"></td>
+            </tr>
+            </tbody>
+            <tr>
+                <td></td>
+                <td th:text="${#aggregates.sum(games.values())}"></td>
+            </tr>
+        </table>
+    </div>
+</main>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.example.steamstats;
+package com.example.steamstats.SteamWebAPI;
 
 import org.json.JSONObject;
 import java.io.IOException;
@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 // Steam provides various APIs with links that differ from each other. This was the cleanest method that I could
 // think of for now to deal with this. I plan on changing this in the future if I learn any better ways to handle this
+// TODO: Fix error handling
 
 public class JSONObjectFactory {
 
@@ -39,15 +40,15 @@ public class JSONObjectFactory {
         return jsonURL.toString();
     }
 
-    // TODO: Redo method to avoid returning null and clean up abstraction issue / Maybe split up into buildObject and getReponse
-    public JSONObject buildJSONObject(String steamID, String type) throws IOException {
+    private JSONObject buildJSONObject(String steamID, String type) throws IOException {
         switch(type.toUpperCase()) {
             case("USER"):
                 return new JSONObject(buildJsonUrl(createUserSummaryURL(steamID)));
             case("GAME"):
                 return new JSONObject(buildJsonUrl(createGameStatsURL(steamID)));
+            default:
+                throw new IOException("Incorrect Web API type: " + type);
         }
-        return null;
     }
 
     public JSONObject getResponse(String steamID, String type) throws IOException {
